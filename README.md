@@ -101,13 +101,6 @@ Animated progress bar
 
 Clean FastAPI/Jinja2 frontend
 
-🧪 Screenshots (Add After Upload)
-
-Add screenshots in this format:
-
-![Screenshot](assets/home.png)
-![Scan Status](assets/status.png)
-![Results](assets/results.png)
 
 🏗️ Tech Stack
 Backend
@@ -225,6 +218,4 @@ Networking, API testing, automation
 
 Let’s connect!
 
-LinkedIn: https://linkedin.com/in/your-profile
-
-GitHub: https://github.com/your-username
+LinkedIn: https://www.linkedin.com/in/biswadip-roy-115773225
