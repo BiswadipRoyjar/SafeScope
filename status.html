@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Scanning Target: {{ url }}</h2>
+
+<div id="status_box"></div>
+
+<div class="loading-bar">
+    <div class="loading-fill" id="loading_fill"></div>
+</div>
+
+<script>
+function updateStatus() {
+    fetch("/scan_status/{{scan_id}}")
+        .then(response => response.json())
+        .then(data => {
+
+            let sevColor = {
+                "running": "#00ff00",
+                "completed": "#00ff00"
+            };
+
+            let html = `
+                <p>Status: <strong style="color:${sevColor[data.status]}">${data.status}</strong></p>
+                <p>Progress: ${data.progress}%</p>
+                <p>Current URL: ${data.current_url}</p>
+                <p>Pages Scanned: ${data.pages_scanned}/${data.total_pages}</p>
+            `;
+
+            document.getElementById("status_box").innerHTML = html;
+            document.getElementById("loading_fill").style.width = data.progress + "%";
+
+            if (data.status === "completed") {
+                window.location = "/scan_result/{{scan_id}}";
+            } else {
+                setTimeout(updateStatus, 500);
+            }
+        });
+}
+
+updateStatus();
+</script>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SafeScope Scanner</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00ff00;
+            font-family: Consolas, monospace;
+            padding: 30px;
+        }
+
+        input, button {
+            padding: 10px;
+            background-color: #001a00;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            width: 300px;
+            font-family: Consolas, monospace;
+        }
+
+        button:hover {
+            background-color: #003300;
+            cursor: pointer;
+        }
+
+        .card {
+            border: 1px solid #00ff00;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #001a00;
+        }
+
+        .severity-high {
+            color: #ff3b3b;
+            font-weight: bold;
+        }
+
+        .severity-medium {
+            color: #ffea00;
+            font-weight: bold;
+        }
+
+        .severity-low {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .loading-bar {
+            width: 100%;
+            background-color: #003300;
+            height: 20px;
+            border: 1px solid #00ff00;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .loading-fill {
+            height: 100%;
+            background-color: #00ff00;
+            width: 0%;
+        }
+
+        a {
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

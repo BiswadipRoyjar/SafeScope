@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>SafeScope – Hacker Mode</h1>
+<p>Enter target URL to begin scanning.</p>
+
+<form method="post" action="/start_scan">
+    <input type="text" name="url" placeholder="Enter website URL" required>
+    <br><br>
+    <button type="submit">INITIATE SCAN</button>
+</form>
+
+{% endblock %}

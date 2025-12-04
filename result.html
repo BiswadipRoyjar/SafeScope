@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Scan Complete</h1>
+<p><strong>Target:</strong> {{ result.url }}</p>
+<p><strong>Total Findings:</strong> {{ result.findings|length }}</p>
+
+<br>
+<a href="/download_pdf/{{ scan_id }}">[ Download PDF Report ]</a>
+<br><br>
+
+<h2>Findings</h2>
+
+{% for f in result.findings %}
+
+{% set sev = f.severity.lower() %}
+{% if sev == "high" %}
+    {% set sev_class = "severity-high" %}
+{% elif sev == "medium" %}
+    {% set sev_class = "severity-medium" %}
+{% else %}
+    {% set sev_class = "severity-low" %}
+{% endif %}
+
+<div class="card">
+    <strong>URL:</strong> {{ f.url }}<br>
+    <strong>Issue:</strong> <span class="{{ sev_class }}">{{ f.issue_type }}</span><br>
+    <strong>Severity:</strong> <span class="{{ sev_class }}">{{ f.severity }}</span><br>
+    <strong>Details:</strong> {{ f.pattern }}<br>
+</div>
+
+{% endfor %}
+
+{% endblock %}
